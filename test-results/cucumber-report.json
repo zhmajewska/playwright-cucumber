@@ -1,0 +1,201 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "sauce-demo-website;standard-user-logs-in,-manages-cart,-and-logs-out",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Standard user logs in, manages cart, and logs out",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5645211
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2452745590
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "the user navigates to the Sauce Demo login page",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 395674486
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "the user logs in with username \"standard_user\" and password \"secret_sauce\"",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 176115123
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the user adds \"Sauce Labs Backpack\" product to the cart",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39600725
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the user adds \"Sauce Labs Fleece Jacket\" product to the cart",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30263952
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the cart should contain \"Sauce Labs Backpack\" product",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44837457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the cart should contain \"Sauce Labs Fleece Jacket\" product",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42949550
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "the user removes \"Sauce Labs Fleece Jacket\" product from the cart",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 31474670
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the user opens the menu",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28627233
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the user resets the app state",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 901061512
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the user logs out",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34167526
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "the user should be redirected to the login page",
+            "match": {
+              "location": "src/steps/sauce-steps.ts:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14246167
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 29194400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@standard",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "sauce-demo-website",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Sauce Demo website",
+    "tags": [
+      {
+        "name": "@standard",
+        "line": 1
+      }
+    ],
+    "uri": "features/sauce.feature"
+  }
+]

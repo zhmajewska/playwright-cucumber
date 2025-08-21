@@ -1,5 +1,5 @@
-import { setWorldConstructor } from "@cucumber/cucumber";
-import { Browser, BrowserContext, Page, chromium } from "@playwright/test";
+import { IWorldOptions, setWorldConstructor } from "@cucumber/cucumber";
+import { Browser, BrowserContext, Page, chromium } from "playwright"; // <-- small fix: use playwright not @playwright/test
 import { SauceDemoPage } from "../pages/sauce-page";
 
 export class World {
@@ -10,14 +10,28 @@ export class World {
 
   sauceDemoPage: SauceDemoPage | undefined;
 
+  // 👇 declare attach so TS knows it exists
+  attach: IWorldOptions["attach"];
+
+  constructor(options: IWorldOptions) {
+    this.attach = options.attach;
+  }
+
   async openBrowser() {
     this.browser = await chromium.launch({ headless: true });
-    this.context = await this.browser.newContext();
+    this.context = await this.browser.newContext({
+      recordVideo: {
+        dir: "videos/", // folder do nagrań
+        size: { width: 1280, height: 720 },
+      },
+    });
   }
 
   async newPage(): Promise<Page> {
     if (!this.context) {
-      throw new Error("Browser context is not initialized. Call openBrowser() first.");
+      throw new Error(
+        "Browser context is not initialized. Call openBrowser() first.",
+      );
     }
     const page = await this.context.newPage();
     this.pages.push(page);

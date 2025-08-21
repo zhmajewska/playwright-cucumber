@@ -1,11 +1,11 @@
 # Playwright + Cucumber + TypeScript Automation
 
 ## Overview
+
 This repository focuses on Behavior-Driven Development (BDD) using Playwright, Cucumber, and TypeScript. With BDD, tests are written in plain-language scenarios (Gherkin) that are easy for all stakeholders to understand, and then mapped to Playwright code for browser automation.
 
 - **Playwright only**: Tests are written directly in code using Playwright’s built-in runner and technical syntax—best for developers `playwright.config.ts`
 - **Playwright + Cucumber (BDD)**: Tests are described in plain language using Cucumber’s runner `cucumber.json`
-
 
 ## How It Works
 
@@ -41,35 +41,48 @@ Install dependencies:
 ```bash
 npm i ts-node -D
 ```
-- cucumber 
+
+- cucumber
+
 ```bash
-npm i @cucumber/cucumber -D
+npm install --save-dev @cucumber/cucumber
 ```
 
 - Playwright
+
 ```bash
 npm install --save-dev playwright
 ```
+
+- Allure
+
+```bash
+npm install --save-dev allure-cucumberjs allure-js-commons allure-commandline
+```
+
 - ESLint
-```bash 
+
+```bash
 npm install eslint --save-dev
 ```
 
-```bash 
+```bash
 npm init @eslint/config
 ```
 
 - Prettier
-```bash 
+
+```bash
 npm install --save-dev --save-exact prettier
 ```
 
-```bash 
+```bash
 npx prettier --write .
 ```
 
-Linking Prettier with ESLint 
-```bash 
+Linking Prettier with ESLint
+
+```bash
 npm install --save-dev eslint-config-prettier
 ```
 
@@ -81,7 +94,7 @@ npm install --save-dev eslint-config-prettier
 npx cucumber-js
 ```
 
-## Generate report
+## Generate Allure report
 
 after the test, you can run this command to generate Allure report:
 
@@ -89,6 +102,8 @@ after the test, you can run this command to generate Allure report:
 npx allure generate reports --clean -o allure-report
 npx allure open allure-report
 ```
+
+If the Allure video is 0KB, it is likely because Playwright only finalizes and writes the video file to disk after the browser context is closed. If you try to read and attach the video before closing the context, the file may be empty or incomplete (often 0KB). To avoid this, first close the context (await context.close()), then read and attach the video file.
 
 ## Best Practices
 

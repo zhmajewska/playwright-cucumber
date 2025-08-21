@@ -19,13 +19,19 @@ When(
   },
 );
 
-When("the user adds {string} product to the cart", async function (product: string) {
-  await this.sauceDemoPage.addToCart(product);
-});
+When(
+  "the user adds {string} product to the cart",
+  async function (product: string) {
+    await this.sauceDemoPage.addToCart(product);
+  },
+);
 
-Then("the cart should contain {string} product", async function (product: string) {
-  await this.sauceDemoPage.checkCart(product);
-});
+Then(
+  "the cart should contain {string} product",
+  async function (product: string) {
+    await this.sauceDemoPage.checkCart(product);
+  },
+);
 
 When(
   "the user removes {string} product from the cart",

@@ -1,5 +1,5 @@
 import { IWorldOptions, setWorldConstructor } from "@cucumber/cucumber";
-import { Browser, BrowserContext, Page, chromium } from "playwright"; // <-- small fix: use playwright not @playwright/test
+import { Browser, BrowserContext, Page, chromium } from "playwright";
 import { SauceDemoPage } from "../pages/sauce-page";
 
 export class World {
@@ -21,7 +21,7 @@ export class World {
     this.browser = await chromium.launch({ headless: true });
     this.context = await this.browser.newContext({
       recordVideo: {
-        dir: "videos/", // folder do nagrań
+        dir: "videos/",
         size: { width: 1280, height: 720 },
       },
     });

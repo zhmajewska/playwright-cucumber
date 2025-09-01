@@ -6,11 +6,7 @@
     "publishQuiet": true,
     "dryRun": false,
     "parallel": 2,
-    "format": [
-      "progress-bar",
-      "json:test-results/cucumber-report.json",
-      "allure-cucumberjs/reporter"
-    ],
+    "format": ["progress-bar", "allure-cucumberjs/reporter"],
     "formatOptions": {
       "snippetInterface": "async-await",
       "allure": {
@@ -19,20 +15,21 @@
     }
   },
   "rerun": {
-    "formatOptions": {
-      "snippetInterface": "async-await"
-    },
+    "requireModule": ["ts-node/register"],
+    "require": ["src/test/steps/*.ts", "src/hooks/hooks.ts"],
     "publishQuiet": true,
     "dryRun": false,
-    "require": ["src/test/steps/*.ts", "src/hooks/hooks.ts"],
-    "requireModule": ["ts-node/register"],
+    "parallel": 2,
     "format": [
       "progress-bar",
-      "html:test-results/cucumber-report.html",
-      "json:test-results/cucumber-report.json",
-      "json:allure-results/results.json",
+      "allure-cucumberjs/reporter",
       "rerun:@rerun.txt"
     ],
-    "parallel": 2
+    "formatOptions": {
+      "snippetInterface": "async-await",
+      "allure": {
+        "resultsDir": "allure-results"
+      }
+    }
   }
 }

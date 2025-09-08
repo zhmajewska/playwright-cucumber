@@ -1,3 +1,4 @@
+gitignore
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
@@ -27,6 +28,13 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Node modules
+node_modules/
+
+# IntelliJ
+.idea/
+
 # Project exclude paths
 /src/pages/sauce-page.js
 /src/steps/sauce-steps.js

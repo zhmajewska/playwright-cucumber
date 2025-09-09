@@ -10,7 +10,7 @@ export class World {
 
   sauceDemoPage: SauceDemoPage | undefined;
 
-  // 👇 declare attach so TS knows it exists
+  // declare 'attach' so TS knows it exists
   attach: IWorldOptions["attach"];
 
   constructor(options: IWorldOptions) {
@@ -21,7 +21,7 @@ export class World {
     this.browser = await chromium.launch({ headless: true });
     this.context = await this.browser.newContext({
       recordVideo: {
-        dir: "videos/",
+        dir: "allure/videos/",
         size: { width: 1280, height: 720 },
       },
     });
@@ -49,14 +49,6 @@ export class World {
     if (this.browser) {
       await this.browser.close();
     }
-  }
-
-  async screenshot(): Promise<Buffer> {
-    if (this.pages.length === 0) {
-      throw new Error("No pages available to take a screenshot.");
-    }
-    const page = this.pages[this.pages.length - 1];
-    return await page.screenshot();
   }
 }
 

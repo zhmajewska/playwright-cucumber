@@ -22,9 +22,9 @@ AfterStep(async function (this: World) {
     const screenshot = await this.page.screenshot({ fullPage: true });
 
     // Attach as a report attachment for Cucumber/Allure
-    await this.attach(screenshot, "image/png");
+    this.attach(screenshot, "image/png");
   } catch (err) {
-    console.error("❌ Failed to capture screenshot:", err);
+    mainLogger.error("❌ Failed to capture screenshot:", err);
   }
 });
 
@@ -35,14 +35,14 @@ After(async function (this: World, scenario) {
       path: `reports/screenshots/${Date.now()}.png`,
       fullPage: true,
     });
-    await this.attach(screenshot, "image/png");
+    this.attach(screenshot, "image/png");
   }
 
   // Attach screenshot from the last page (if any)
   if (this.pages.length > 0) {
     const lastPage = this.pages[this.pages.length - 1];
     const screenshot = await lastPage.screenshot();
-    await this.attach(screenshot, "image/png");
+    this.attach(screenshot, "image/png");
 
     // Attach video if available (Playwright saves video after context is closed)
     if (this.context?.browser()) {
@@ -52,7 +52,7 @@ After(async function (this: World, scenario) {
         const videoPath = await video.path();
         if (fs.existsSync(videoPath)) {
           const videoBuffer = await fs.promises.readFile(videoPath);
-          await this.attach(videoBuffer, "video/webm");
+          this.attach(videoBuffer, "video/webm");
         }
       }
     }
